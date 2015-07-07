@@ -25,7 +25,7 @@ void MainWindow::init (){
 
     QRect rect = this->rect ();
     m_pTextEditer->setGeometry (0, 0, rect.width () / 2 , rect.height () );
-    m_pWebView->setGeometry (rect.width ()/2, 0, rect.width () / 2, rect.height () );
+    m_pWebView->setGeometry (rect.width ()/2 , 0, rect.width () / 2, rect.height () );
 
     this->setWindowTitle ("md");
 
@@ -42,8 +42,8 @@ void MainWindow::init (){
 
 void MainWindow::resizeEvent (QResizeEvent *){
     QRect rect = this->rect ();
-    m_pTextEditer->setGeometry (0, 0, rect.width () / 2 , rect.height () );
-    m_pWebView->setGeometry (rect.width ()/2, 0, rect.width () / 2, rect.height () );
+    m_pTextEditer->setGeometry (1, 1, rect.width () / 2 , rect.height () );
+    m_pWebView->setGeometry (rect.width ()/2 + 5, 1, rect.width () / 2, rect.height () );
 }
 
 void MainWindow::onTextChange (){

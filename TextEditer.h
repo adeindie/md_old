@@ -13,9 +13,10 @@ public:
     TextEditer(QWidget* parent=0);
     ~TextEditer();
 
-protected slots:
+public slots:
     void onTextChangeInner();
     void onTextColorUpdate();
+    void onDocumentChange(int position, int charsRemoved, int charsAdded );
 protected:
     QTimer m_Timer;
     QStack<QColor> m_colorStack;

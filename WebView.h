@@ -18,12 +18,16 @@ public:
     ~WebView();
 
     void setMarkDownString(QString mdcode);
+protected slots:
+    void onLinkClicked(QUrl url);
 private:
     struct sd_markdown *m_pmarkdown;
     struct sd_callbacks m_callbacks;
     struct html_renderopt m_options;
     struct buf          *m_pOutBuf;
     struct buf          *m_pInBuf;
+
+    char*             m_StyleShellFile;
 };
 
 #endif // WEBVIEW_H
