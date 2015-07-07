@@ -7,13 +7,9 @@
 #include <QTimer>
 #include <QWebView>
 #include <QPlainTextEdit>
+#include <TextEditer.h>
+#include <WebView.h>
 
-extern "C"
-{
-#include <markdown.h>
-#include <buffer.h>
-#include <html.h>
-}
 namespace Ui {
 class MainWindow;
 }
@@ -33,17 +29,12 @@ protected:
 private slots:
     void onTextChange();
     void onUpdateText();
+    void onConvert();
 private:
     Ui::MainWindow *ui;
     QTimer          m_Timer;
-    QPlainTextEdit* m_pTextEditer;
-    QWebView*       m_pWebView;
-
-    struct sd_markdown *m_pmarkdown;
-    struct sd_callbacks m_callbacks;
-    struct html_renderopt m_options;
-    struct buf          *m_pOutBuf;
-    struct buf          *m_pInBuf;
+    TextEditer*     m_pTextEditer;
+    WebView*       m_pWebView;
 };
 
 #endif // MAINWINDOW_H

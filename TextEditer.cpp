@@ -21,48 +21,7 @@ TextEditer::~TextEditer()
 }
 
 void TextEditer::onTextChangeInner(){
-//    QTextCursor curcor = this->textCursor ();
-//    int pos = curcor.position () - 1 ;
-
-//    QString content = this->toPlainText ();
-
-//    if (pos > content.size () || pos < 0 ) {
-//        qDebug() << "error" << pos << "," << content.size ();
-//        return;
-//    }
-
-//    QChar chr= content.at (pos);
-//    QColor color(0, 0, 0);
-
-
-
-//    qDebug() << "Char:" << chr;
-//    if(chr == '#') {
-//        if ( pos == 0 || (pos > 0 && content.at (pos - 1) == '\n' ) ){
-//            color = QColor(255, 0, 0);
-//        }
-//        QTextCharFormat fmt;
-//        fmt.setForeground (color);
-//bool rs = curcor.movePosition (QTextCursor::Left, QTextCursor::MoveAnchor, 1);
-//qDebug() << "rs" << rs;
-//        curcor.mergeCharFormat (fmt);
-//        this->mergeCurrentCharFormat (fmt);
-//    }
-
-//    if(chr == '\n'){
-//        QTextCharFormat fmt;
-//        fmt.setForeground (color);
-
-//        curcor.mergeCharFormat (fmt);
-//        this->mergeCurrentCharFormat (fmt);
-//    }
-
-
-//    if (m_Timer.isActive ()) m_Timer.stop ();
-
-//    m_Timer.setInterval ( 500 );
-//    m_Timer.start ();
-onTextColorUpdate();
+    onTextColorUpdate();
 }
 
 void TextEditer::onTextColorUpdate(){

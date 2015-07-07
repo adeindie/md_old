@@ -3,3 +3,6 @@ libsundown.so*
 sundown
 smartypants
 *.exe
+Libs
+plugins
+.tags

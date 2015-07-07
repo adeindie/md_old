@@ -13,33 +13,7 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="QPlainTextEdit" name="plainTextEdit">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>50</y>
-      <width>78</width>
-      <height>78</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QWebView" name="webView">
-    <property name="geometry">
-     <rect>
-      <x>240</x>
-      <y>50</y>
-      <width>148</width>
-      <height>78</height>
-     </rect>
-    </property>
-    <property name="url">
-     <url>
-      <string>about:blank</string>
-     </url>
-    </property>
-   </widget>
-  </widget>
+  <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -49,17 +23,22 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionRevert"/>
+   </widget>
+   <addaction name="menuTools"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionRevert">
+   <property name="text">
+    <string>revert</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKitWidgets/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

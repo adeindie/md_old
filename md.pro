@@ -6,35 +6,25 @@
 
 QT       += core gui
 QT += webkit webkitwidgets
+CONFIG += c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = md
 TEMPLATE = app
 
-INCLUDEPATH += ./src
-INCLUDEPATH += ./html
+INCLUDEPATH += ./third_party/sundown/src
+INCLUDEPATH += ./third_party/sundown/html
+
+LIBS += -L$${PWD}/Libs/ -lsundown
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    src/autolink.c \
-    src/buffer.c \
-    src/markdown.c \
-    src/stack.c \
-    html/houdini_href_e.c \
-    html/houdini_html_e.c \
-    html/html_smartypants.c \
-    html/html.c \
-    TextEditer.cpp
+    mainwindow.cpp \
+    TextEditer.cpp \
+    WebView.cpp
 
 HEADERS  += mainwindow.h \
-    src/autolink.h \
-    src/buffer.h \
-    src/html_blocks.h \
-    src/markdown.h \
-    src/stack.h \
-    html/houdini.h \
-    html/html.h \
-    TextEditer.h
+    TextEditer.h \
+    WebView.h
 
 FORMS    += mainwindow.ui
