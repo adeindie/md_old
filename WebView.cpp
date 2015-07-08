@@ -71,7 +71,7 @@ void WebView::setMarkDownString (QString code){
     QString content( (char*) m_pOutBuf->data );
     int pos = content.lastIndexOf ('>');
     if (pos != content.size () ){
-        qDebug() << "sub string:" << pos;
+//        qDebug() << "sub string:" << pos;
         content = content.mid (0, pos).trimmed ();
     }
     snprintf (buffer, size, temp, m_StyleShellFile, content.toUtf8 ().constData () );

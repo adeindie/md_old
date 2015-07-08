@@ -12,7 +12,8 @@ class TextEditer: public QPlainTextEdit
 public:
     TextEditer(QWidget* parent=0);
     ~TextEditer();
-
+    void dragEnterEvent(QDragEnterEvent *e);
+    void dropEvent (QDropEvent *e);
 public slots:
     void onTextChangeInner();
     void onTextColorUpdate();

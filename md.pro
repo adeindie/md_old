@@ -25,14 +25,11 @@ LIBS += -L$${PWD}/Libs/ -lsundown
 SOURCES += main.cpp\
     mainwindow.cpp \
     TextEditer.cpp \
-    WebView.cpp \
-    EvernoteHelper.cpp
+    WebView.cpp
 
 HEADERS  += mainwindow.h \
     TextEditer.h \
-    WebView.h \
-    EvernoteHelper.h
-
+    WebView.h
 FORMS    += mainwindow.ui
 
 unix: PKGCONFIG += thrift

@@ -2,7 +2,7 @@
 #include <QDebug>
 #include <QTextDocument>
 #include <QTextBlock>
-
+#include <QMimeData>
 TextEditer::TextEditer(QWidget *parent):
     QPlainTextEdit(parent){
 
@@ -18,6 +18,9 @@ TextEditer::TextEditer(QWidget *parent):
              this, SLOT(onDocumentChange(int,int,int)));
 
     m_colorStack.push_back ( QColor(0, 0, 0) );
+
+
+    this->acceptDrops ();
 }
 
 TextEditer::~TextEditer()
@@ -108,6 +111,23 @@ void TextEditer::onDocumentChange (int position, int charsRemoved, int charsAdde
 //        frame->setFrameFormat (frameFormat);
 //    }
 
+}
+
+void TextEditer::dragEnterEvent(QDragEnterEvent *e){
+    if (e->mimeData ()->hasUrls ()){
+        e->acceptProposedAction ();
+    }
+}
+
+void TextEditer::dropEvent (QDropEvent *e){
+
+    const QMimeData* mime = e->mimeData ();
+    qDebug() << mime->urls ();
+
+    foreach (const QUrl &url, e->mimeData ()->urls ()) {
+        qDebug() << url.toLocalFile ();
+        url.from
+    }
 }
 
 
