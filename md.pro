@@ -18,13 +18,21 @@ INCLUDEPATH += ./third_party/sundown/html
 
 LIBS += -L$${PWD}/Libs/ -lsundown
 
+
+#INCLUDEPATH += `pkg-config --cflags thrift`
+#LIBS += `pkg-config --libs thrift`
+
 SOURCES += main.cpp\
     mainwindow.cpp \
     TextEditer.cpp \
-    WebView.cpp
+    WebView.cpp \
+    EvernoteHelper.cpp
 
 HEADERS  += mainwindow.h \
     TextEditer.h \
-    WebView.h
+    WebView.h \
+    EvernoteHelper.h
 
 FORMS    += mainwindow.ui
+
+unix: PKGCONFIG += thrift

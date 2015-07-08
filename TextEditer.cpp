@@ -108,30 +108,6 @@ void TextEditer::onDocumentChange (int position, int charsRemoved, int charsAdde
 //        frame->setFrameFormat (frameFormat);
 //    }
 
-
-    QTextBlock block = doc->begin ();
-    block = block.next ();
-    int index = 0;
-    while( block.isValid () ){
-
-        index++;
-        if (index >= doc->blockCount () || block.text ().size () < 2 ){
-            qDebug() << "Block:" << block.text ();
-            qDebug() << "last one" << index << ", " << doc->blockCount () ;
-            return;
-        }
-        QTextCursor cursor( block );
-        QTextCharFormat fmt;
-        fmt.setForeground (_GetRamdomColor());
-        fmt.setBackground (_GetRamdomColor ());
-        QTextCursor helper = cursor;
-        helper.setPosition ( block.position ()  );
-        helper.setPosition ( block.position () + block.text ().size () , QTextCursor::KeepAnchor );
-        helper.setCharFormat(fmt);
-
-        block = block.next ();
-    }
-
 }
 
 

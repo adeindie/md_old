@@ -6,3 +6,7 @@ smartypants
 Libs
 plugins
 .tags
+
+plugins/evernote/EvernoteHelper.cpp
+plugins/evernote/EvernoteHelper.h
+*md.pro.user
