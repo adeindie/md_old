@@ -95,23 +95,43 @@ void TextEditer::onDocumentChange (int position, int charsRemoved, int charsAdde
 //    }
 
     QTextDocument* doc = this->document ();
-    if ( !doc ) return;
-    int cnt = doc->blockCount ();
-    qDebug() << charsAdded << " block count:" << cnt;
-    for (int i=0;i<cnt;i++){
-        QTextBlock block = doc->findBlock (i);
-        if (block.text ().size () == 0) continue;
+//    if ( !doc ) return;
+//    QTextFrame* rootFrame = doc->rootFrame ();
+
+//    QTextFrameFormat frameFormat;
+//    frameFormat.setBorderBrush (Qt::red);
+//    frameFormat.setBorder (5);
+//    rootFrame->setFrameFormat (frameFormat);
+//    auto it = rootFrame->begin ();
+//    while( ++it != rootFrame->end () && it != last ){
+//        QTextFrame* frame = it.currentFrame ();
+//        frame->setFrameFormat (frameFormat);
+//    }
+
+
+    QTextBlock block = doc->begin ();
+    block = block.next ();
+    int index = 0;
+    while( block.isValid () ){
+
+        index++;
+        if (index >= doc->blockCount () || block.text ().size () < 2 ){
+            qDebug() << "Block:" << block.text ();
+            qDebug() << "last one" << index << ", " << doc->blockCount () ;
+            return;
+        }
+        QTextCursor cursor( block );
         QTextCharFormat fmt;
-        fmt.setForeground(_GetRamdomColor());
+        fmt.setForeground (_GetRamdomColor());
+        fmt.setBackground (_GetRamdomColor ());
         QTextCursor helper = cursor;
-        helper.clearSelection ();
-        helper.setPosition( block.position ()+1 , QTextCursor::KeepAnchor );
-        helper.setPosition( block.position ()+block.text ().size () - 2 , QTextCursor::KeepAnchor );
+        helper.setPosition ( block.position ()  );
+        helper.setPosition ( block.position () + block.text ().size () , QTextCursor::KeepAnchor );
         helper.setCharFormat(fmt);
-        QString old = block.text ();
-        block.blockFormat ()
-        helper.insertText (block.text ());
+
+        block = block.next ();
     }
+
 }
 
 
