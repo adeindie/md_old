@@ -9,4 +9,4 @@ plugins
 
 plugins/evernote/EvernoteHelper.cpp
 plugins/evernote/EvernoteHelper.h
-*md.pro.user
+*.pro.user
